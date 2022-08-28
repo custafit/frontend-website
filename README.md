@@ -1,6 +1,6 @@
 # custafit (frontend)
 
-A Quasar Project
+custafit online store
 
 ## Install the dependencies
 ```bash
