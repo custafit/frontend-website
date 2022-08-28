@@ -12,6 +12,26 @@ const routes = [
     ],
   },
   {
+    path: "/category",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("pages/categories/CategoriesIndex.vue"),
+      },
+    ],
+  },
+  {
+    path: "/trending",
+    component: () => import("layouts/TrendingLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("pages/Trending/TrendingIndex.vue"),
+      },
+    ],
+  },
+  {
     path: "/search",
     component: () => import("layouts/MainLayout.vue"),
     children: [

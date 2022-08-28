@@ -24,19 +24,27 @@
         class="p-3 bg-gray-800 bg-opacity-60 absolute bottom-0 w-full h-24 z-10"
       >
         <div class="font-bold text-xl text-white">{{ product.name }}</div>
-        <div class="font-bold text-4xl text-accent">$ 53</div>
+        <div class="font-bold text-4xl text-accent">$ {{ product.price }}</div>
       </div>
-      <q-img src="https://picsum.photos/400/300" class="max-h-96 object-fit" />
+      <q-img
+        :src="
+          product.image ? `${product.image}` : 'https://picsum.photos/400/300'
+        "
+        class="max-h-96 object-fit"
+      />
     </div>
 
     <div class="">
       <q-card-actions class="flex justify-between p-5">
-        <q-btn
-          flat
-          round
-          color="red"
-          :icon="user.liked ? 'favorite' : 'favorite_border'"
-        />
+        <div class="">
+          <q-btn
+            flat
+            round
+            color="red"
+            :icon="user.liked ? 'favorite' : 'favorite_border'"
+          />
+          <div class="font-bold text-sm">{{ product.likes }} likes</div>
+        </div>
         <q-btn flat color="white" icon="add_shopping_cart" class="bg-primary" />
       </q-card-actions>
     </div>

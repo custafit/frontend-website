@@ -3,7 +3,9 @@
     <q-card-section>
       <div class="flex gap-2">
         <q-chip
-          class="bg-secondary px-2 py-1"
+          :class="`${
+            currentTag == index ? 'bg-accent text-white' : 'bg-secondary'
+          } px-2 py-1`"
           v-for="(tag, index) in tags"
           :key="index"
           clickable

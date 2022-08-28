@@ -37,14 +37,30 @@
               name: 'ColorBlock Shirt',
               price: '22',
               tags: ['shirt', 'cloth', 'male'],
-              image: '',
+              image: 'https://picsum.photos/id/320/200/200',
               rating: '4.2',
-              likes: '',
+              likes: '4',
             }"
             :seller="{
               sellerId: '1',
               name: 'UsPolo',
               image: 'https://cdn.quasar.dev/img/avatar.png',
+            }"
+            :user="{ liked: false, cart: [] }"
+          />
+          <Post
+            :product="{
+              name: 'Skirt ',
+              price: '42',
+              tags: ['skirt', 'cloth', 'female'],
+              image: '',
+              rating: '4.4',
+              likes: '5',
+            }"
+            :seller="{
+              sellerId: '2',
+              name: 'Handbloomers',
+              image: 'https://cdn.quasar.dev/img/avatar1.jpg',
             }"
             :user="{ liked: false, cart: [] }"
           />

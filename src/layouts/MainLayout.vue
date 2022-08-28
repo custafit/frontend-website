@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR fFf" class="h-screen overflow-hidden">
     <q-header class="bg-white text-grey-8 q-py-xs">
       <q-toolbar class="flex justify-between">
         <div class="flex gap-2">
@@ -12,7 +12,11 @@
             icon="menu"
           />
           <q-toolbar-title>
-            <div class="font-bold text-2xl text-orange-400">custafit</div>
+            <router-link
+              to="/"
+              class="font-bold text-2xl text-orange-400 no-underline"
+              >custafit</router-link
+            >
           </q-toolbar-title>
         </div>
 
@@ -37,6 +41,7 @@
               flat
               color="grey-8"
               icon="category"
+              to="/category"
               class="gt-sm"
             >
               <!-- <q-badge color="red" text-color="white" floating> 2 </q-badge> -->
@@ -71,9 +76,18 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" bordered class="bg-grey-2" :width="240">
+    <q-drawer
+      v-model="leftDrawerOpen"
+      bordered
+      class="bg-grey-2 fixed"
+      :width="240"
+    >
       <div class="p-5">
-        <div class="font-bold text-2xl text-orange-400">custafit</div>
+        <router-link
+          to="/"
+          class="font-bold text-2xl text-orange-400 no-underline"
+          >custafit</router-link
+        >
       </div>
       <q-list padding>
         <q-item
@@ -95,7 +109,7 @@
       <q-separator class="q-my-md" />
     </q-drawer>
 
-    <q-page-container class="bg-secondary">
+    <q-page-container class="bg-secondary h-full overflow-y scroll">
       <router-view />
     </q-page-container>
     <q-footer class="lt-md">
@@ -116,8 +130,8 @@
           round
           aria-label="category"
           icon="category"
-          to="/home"
-          active-class="bg-accent"
+          to="/category"
+          :class="` ${$route.path == '/category' ? 'bg-accent' : ''}`"
         />
         <q-btn
           flat
@@ -125,8 +139,8 @@
           round
           aria-label="hot"
           icon="whatshot"
-          to="/"
-          active-class="bg-accent"
+          to="/trending"
+          :class="` ${$route.path == '/trending' ? 'bg-accent' : ''}`"
         />
         <q-btn
           flat
@@ -135,7 +149,7 @@
           aria-label="hot"
           icon="search"
           to="/search"
-          active-class="bg-accent"
+          :class="` ${$route.path == '/search' ? 'bg-accent' : ''}`"
         />
         <q-btn
           flat
@@ -144,7 +158,7 @@
           aria-label="Profile"
           icon="account_circle"
           to="/profile"
-          active-class="bg-accent"
+          :class="` ${$route.path == '/profile' ? 'bg-accent' : ''}`"
         />
       </q-toolbar>
     </q-footer>
